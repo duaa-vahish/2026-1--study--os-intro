@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>report2.md.txt</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<center>
+<h1 id="отчёт-по-курсу-введение-в-linux">Отчёт по курсу &quot;Введение в Linux&quot;</h1>
+<h2 id="часть-2-разделы-21--26">Часть 2: Разделы 2.1 – 2.6</h2>
+<p><strong>Вахиш Дуаа Иссам Али Ахмед</strong></p>
+<p><strong>2026-05-15</strong></p>
+</center>
+<div style="page-break-before:always"></div>
+<h1 id="цель-работы">Цель работы</h1>
+<p>Закрепить практические навыки работы с удалёнными серверами, обмена файлами, управления процессами, использования многопоточных приложений и работы с терминальным мультиплексором tmux в среде Linux.</p>
+<h1 id="задание">Задание</h1>
+<p>Пройти тесты и выполнить практические задания второй части курса (разделы 2.1 – 2.6), оформить отчёт со скриншотами вопросов, правильных ответов и краткими пояснениями.</p>
+<h1 id="выполнение">Выполнение</h1>
+<div style="page-break-before:always"></div>
+<h2 id="21-знакомство-с-сервером">2.1 Знакомство с сервером</h2>
+<h3 id="вопрос-1-для-каких-задач-можно-использовать-удалённый-сервер">Вопрос 1: Для каких задач можно использовать удалённый сервер?</h3>
+<p><img src="./images2/1_before.png" alt="Вопрос">
+<img src="./images2/1_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Удалённый сервер подходит для всех перечисленных задач: сложные вычисления, хранение больших данных, хранение конфиденциальных и общедоступных данных. Все четыре варианта верны.</p>
+<hr>
+<h3 id="вопрос-2-какой-ключ-ssh-можно-безопасно-пересылать-по-интернету">Вопрос 2: Какой ключ SSH можно безопасно пересылать по интернету?</h3>
+<p><img src="./images2/2_before.png" alt="Вопрос">
+<img src="./images2/2_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Публичный ключ <code>id_rsa.pub</code> можно свободно распространять. Приватный ключ <code>id_rsa</code> должен оставаться в секрете.</p>
+<div style="page-break-before:always"></div>
+<h2 id="22-обмен-файлами">2.2 Обмен файлами</h2>
+<h3 id="вопрос-3-команда-для-копирования-папки-stepic-на-сервер">Вопрос 3: Команда для копирования папки <code>stepic</code> на сервер</h3>
+<p><img src="./images2/3-before.png" alt="Вопрос">
+<img src="./images2/3_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> <code>scp -r stepic username@server:~/</code> – рекурсивное копирование всей папки в домашнюю директорию сервера.</p>
+<hr>
+<h3 id="вопрос-4-действия-при-ошибке-apt-get-install-program">Вопрос 4: Действия при ошибке <code>apt-get install program</code></h3>
+<p><img src="./images2/4_before.png" alt="Вопрос">
+<img src="./images2/4_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Нужно проверить интернет-соединение и выполнить <code>sudo apt-get update</code> для обновления списка пакетов.</p>
+<div style="page-break-before:always"></div>
+<h3 id="вопрос-5-назначение-программы-filezilla">Вопрос 5: Назначение программы FileZilla</h3>
+<p><img src="./images2/5_before.png" alt="Вопрос">
+<img src="./images2/5_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> FileZilla позволяет просматривать содержимое директорий на сервере и копировать файлы в обе стороны.</p>
+<hr>
+<h1 id="23-запуск-приложений">2.3 Запуск приложений</h1>
+<h3 id="вопрос-6-что-делать-если-программе-нужен-графический-экран">Вопрос 6: Что делать, если программе нужен графический экран?</h3>
+<p><img src="./images2/6_before.png" alt="Вопрос">
+<img src="./images2/6_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Найти терминальную версию программы или настроить сервер для вывода графики (X11 forwarding).</p>
+<div style="page-break-before:always"></div>
+<h3 id="вопрос-7-как-получить-справку-о-программе">Вопрос 7: Как получить справку о программе?</h3>
+<p><img src="./images2/7_before.png" alt="Вопрос">
+<img src="./images2/7_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Используйте <code>man program</code> или <code>program --help</code> (также <code>-help</code>, <code>-h</code>).</p>
+<hr>
+<h3 id="вопрос-8-какие-форматы-данных-принимает-fastqc">Вопрос 8: Какие форматы данных принимает FastQC?</h3>
+<p><img src="./images2/8_before.png" alt="Вопрос">
+<img src="./images2/8_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> FastQC работает с форматами <code>bam</code>, <code>sam</code> и <code>fastq</code>.</p>
+<div style="page-break-before:always"></div>
+<h3 id="вопрос-9-команда-для-множественного-выравнивания-clustalw">Вопрос 9: Команда для множественного выравнивания ClustalW</h3>
+<p><img src="./images2/9_before.png" alt="Вопрос">
+<img src="./images2/9_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> <code>clustalw -INFILE=test.fasta -ALIGN</code> – опция <code>-ALIGN</code> включает множественное выравнивание.</p>
+<hr>
+<h2 id="24-контроль-запускаемых-программ">2.4 Контроль запускаемых программ</h2>
+<h3 id="вопрос-10-результат-jobs-после-fg-1-ctrlc-fg-2-ctrlz">Вопрос 10: Результат <code>jobs</code> после <code>fg %1</code>, <code>Ctrl+C</code>, <code>fg %2</code>, <code>Ctrl+Z</code></h3>
+<p><img src="./images2/10_before.png" alt="Вопрос">
+<img src="./images2/10_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> program1 завершён, program2 остановлен, program3 в фоне. <code>jobs</code> покажет <strong>только program2 и program3</strong>.</p>
+<div style="page-break-before:always"></div>
+<h3 id="вопрос-11-одинаковы-ли-идентификаторы-в-jobs-top-и-ps">Вопрос 11: Одинаковы ли идентификаторы в <code>jobs</code>, <code>top</code> и <code>ps</code>?</h3>
+<p><img src="./images2/11_before.png" alt="Вопрос">
+<img src="./images2/11_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> <code>jobs</code> показывает номера заданий (job ID), <code>top</code> и <code>ps</code> – PID. Они разные. Ответ: <strong>У всех разные</strong>.</p>
+<hr>
+<h3 id="вопрос-12-команда-для-мгновенного-завершения-остановленного-процесса">Вопрос 12: Команда для мгновенного завершения остановленного процесса</h3>
+<p><img src="./images2/12_before.png" alt="Вопрос">
+<img src="./images2/12_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> <code>kill -9</code> (сигнал SIGKILL) завершает процесс немедленно.</p>
+<div style="page-break-before:always"></div>
+<h3 id="вопрос-13-что-произойдёт-при-kill-без-опций-для-остановленного-процесса">Вопрос 13: Что произойдёт при <code>kill</code> (без опций) для остановленного процесса?</h3>
+<p><img src="./images2/13_before.png" alt="Вопрос">
+<img src="./images2/13_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Сигнал <code>SIGTERM</code> будет ждать, пока процесс продолжат (<code>fg</code>/<code>bg</code>), затем процесс завершится. Ответ: <strong>Процесс приступит к завершению, как только будет продолжен</strong>.</p>
+<hr>
+<h2 id="25-многопоточные-приложения">2.5 Многопоточные приложения</h2>
+<h3 id="вопрос-14-сколько-cpu-использует-остановленное-многопоточное-приложение">Вопрос 14: Сколько CPU использует остановленное многопоточное приложение?</h3>
+<p><img src="./images2/14_before.png" alt="Вопрос">
+<img src="./images2/14_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Остановленный процесс не получает процессорное время → <strong>0% CPU</strong>.</p>
+<div style="page-break-before:always"></div>
+<h3 id="вопрос-15-сколько-памяти-занимает-остановленное-многопоточное-приложение">Вопрос 15: Сколько памяти занимает остановленное многопоточное приложение?</h3>
+<p><img src="./images2/15_before.png" alt="Вопрос">
+<img src="./images2/15_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Память остаётся зарезервированной. Ответ: <strong>Столько, сколько потребляло в момент остановки</strong>.</p>
+<hr>
+<h3 id="вопрос-16-как-принудительно-завершить-один-поток-многопоточного-приложения">Вопрос 16: Как принудительно завершить один поток многопоточного приложения?</h3>
+<p><img src="./images2/16_before.png" alt="Вопрос">
+<img src="./images2/16_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Стандартными командами завершить отдельный поток нельзя. Ответ: <strong>Никак</strong>.</p>
+<div style="page-break-before:always"></div>
+<h3 id="вопрос-17-какие-этапы-bowtie2-можно-выполнять-в-несколько-потоков">Вопрос 17: Какие этапы bowtie2 можно выполнять в несколько потоков?</h3>
+<p><img src="./images2/17_before.png" alt="Вопрос">
+<img src="./images2/17_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Оба этапа – <code>bowtie2-build</code> и <code>bowtie2</code> – поддерживают опцию <code>--threads</code>. Ответ: <strong>Оба</strong>.</p>
+<hr>
+<h3 id="практическое-задание-18-запуск-bowtie2-и-сохранение-stderr">Практическое задание 18: Запуск bowtie2 и сохранение stderr</h3>
+<p><img src="./images2/18_before.png" alt="Описание задания">
+<img src="./images2/18_after.png" alt="Результат"></p>
+<p><strong>Пошагово:</strong></p>
+<ol>
+<li>Распаковать bowtie2.</li>
+<li>Построить индекс: <code>./bowtie2-build reference.fasta index</code>.</li>
+<li>Запустить выравнивание: <code>./bowtie2 -x index -U reads.fastq -S output.sam 2&gt; bowtie.log</code>.</li>
+<li>Файл <code>bowtie.log</code> содержит статистику (306174 reads, 100.00% overall alignment rate). Загружен в форму.</li>
+</ol>
+<div style="page-break-before:always"></div>
+<h2 id="26-менеджер-терминалов-tmux">2.6 Менеджер терминалов tmux</h2>
+<h3 id="вопрос-19-что-будет-если-в-другой-вкладке-набрать-fg-после-приостановки-процесса">Вопрос 19: Что будет, если в другой вкладке набрать <code>fg</code> после приостановки процесса?</h3>
+<p><img src="./images2/19_before.png" alt="Вопрос">
+<img src="./images2/19_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Процесс привязан к исходной вкладке. <code>fg</code> в другой вкладке не действует.<br>
+Ответ: <strong>Процесс вернётся к работе в исходной вкладке</strong>.</p>
+<hr>
+<h3 id="вопрос-20-что-случится-при-вводе-exit-в-последней-вкладке-tmux">Вопрос 20: Что случится при вводе <code>exit</code> в последней вкладке tmux?</h3>
+<p><img src="./images2/20_before.png" alt="Вопрос">
+<img src="./images2/20_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Закрытие последнего окна завершает сеанс tmux.<br>
+Ответ: <strong>tmux завершит работу</strong>.</p>
+<div style="page-break-before:always"></div>
+<h3 id="вопрос-21-закрытие-терминала-с-запущенным-tmux-на-сервере">Вопрос 21: Закрытие терминала с запущенным tmux на сервере</h3>
+<p><img src="./images2/21_before.png" alt="Вопрос">
+<img src="./images2/21_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> tmux продолжает работу на сервере после разрыва SSH.<br>
+Ответ: <strong>Соединение прервётся, но работа tmux продолжится</strong>.</p>
+<hr>
+<h3 id="вопрос-22-принудительное-закрытие-вкладки-tmux-с-фоновым-процессом">Вопрос 22: Принудительное закрытие вкладки tmux с фоновым процессом</h3>
+<p><img src="./images2/22_before.png" alt="Вопрос">
+<img src="./images2/22_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Закрытие вкладки (<code>Ctrl+B</code>, <code>X</code>) завершает все процессы в ней.<br>
+Ответ: <strong>Вкладка закроется, а вместе с ней пропадёт и запущенный в ней процесс</strong>.</p>
+<div style="page-break-before:always"></div>
+<h3 id="вопрос-23-горячая-клавиша-для-переименования-текущей-вкладки-tmux">Вопрос 23: Горячая клавиша для переименования текущей вкладки tmux</h3>
+<p><img src="./images2/23_before.png" alt="Вопрос">
+<img src="./images2/23_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> <code>Ctrl+B</code> <code>,</code> (запятая).<br>
+Ответ: <strong>Ctrl+B и , (запятая)</strong>.</p>
+<hr>
+<h3 id="вопрос-24-верные-утверждения-о-разделении-панелей-в-tmux">Вопрос 24: Верные утверждения о разделении панелей в tmux</h3>
+<p><img src="./images2/24_before.png" alt="Вопрос">
+<img src="./images2/24_after.png" alt="Ответ"></p>
+<p><strong>Пояснение:</strong> Все утверждения ложны. <code>exit</code> в панели закрывает только её; разделение действует только на текущую вкладку; при повторном разделении не получается ровно 4 части; делить можно многократно; для перемещения нужен <code>Ctrl+B</code> со стрелками.<br>
+Правильный ответ: <strong>не выбирать ни одного варианта</strong>.</p>
+<div style="page-break-before:always"></div>
+<h1 id="заключение">Заключение</h1>
+<p>Все тесты и практические задания второй части курса (разделы 2.1 – 2.6) успешно выполнены. Получены навыки работы с удалёнными серверами, обмена файлами (scp, FileZilla), управления процессами (fg, bg, jobs, kill), использования многопоточных приложений (bowtie2) и работы с терминальным мультиплексором tmux. Отчёт оформлен в соответствии с требованиями.</p>
+
+</body>
+</html>

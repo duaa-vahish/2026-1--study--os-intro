@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <style>
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+  }
+  .slide {
+    width: 297mm;
+    height: 210mm;
+    box-sizing: border-box;
+    padding: 25mm 25mm 20mm 25mm;
+    position: relative;
+    page-break-after: always;
+    background: #ffffff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #222222;
+  }
+  .title-slide {
+    padding-top: 60mm;
+    border-left: 15mm solid #003366;
+  }
+  h1 {
+    font-size: 32pt;
+    margin: 0 0 5mm 0;
+    color: #003366;
+  }
+  h2 {
+    font-size: 24pt;
+    color: #003366;
+    margin: 0 0 8mm 0;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 3mm;
+  }
+  .qa-block {
+    font-size: 16pt;
+    line-height: 1.5;
+    margin-bottom: 4mm;
+  }
+  .question {
+    font-weight: bold;
+    color: #0055a5;
+    margin-bottom: 1mm;
+  }
+  .answer {
+    background-color: #f9f9f9;
+    padding: 2mm 4mm;
+    border-left: 4px solid #28a745;
+    margin-bottom: 2mm;
+    border-radius: 4px;
+  }
+  code {
+    font-family: 'Consolas', monospace;
+    background-color: #eaeaea;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #c7254e;
+  }
+  .footer {
+    position: absolute;
+    bottom: 10mm;
+    left: 25mm;
+    right: 25mm;
+    font-size: 11pt;
+    color: #666666;
+    border-top: 1px solid #eeeeee;
+    padding-top: 2mm;
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
+<!-- СЛАЙД 1: ТИТУЛЬНЫЙ -->
+<div class="slide title-slide">
+  <h1>Презентация по внешнему курсу: Linux</h1>
+  <p style="font-size: 20pt; color: #555555; margin: 0 0 15mm 0;">Контрольные мероприятия: Все вопросы и ответы (Раздел 1)</p>
+  <p style="font-size: 15pt;">
+    <b>Выполнила:</b> Вахиш Дуаа Иссам Али Ахмед<br>
+    <b>Направление:</b> фундаментальная информатика и информационные технологии
+  </p>
+  <div class="footer">
+    <span>РКТ РУДН | 2026</span>
+    <span>Слайд 1</span>
+  </div>
+</div>
+<!-- СЛАЙД 2: ЦЕЛИ И ЗАДАЧИ -->
+<div class="slide">
+  <h2>🎯 Цели и задачи защиты</h2>
+  <div class="qa-block">
+    <ul>
+      <li><b>Изучение основ:</b> Знакомство с ОС Linux, её дистрибутивами и установкой ПО.</li>
+      <li><b>Командная строка:</b> Освоение базового синтаксиса утилит CLI и навигации.</li>
+      <li><b>Файлы и процессы:</b> Изучение прав доступа, архивации, фоновых режимов и потоков.</li>
+      <li><b>Практика:</b> Фиксация правильных ответов тестов Stepik для отчётности в LMS.</li>
+    </ul>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 2</span>
+  </div>
+</div>
+<!-- СЛАЙД 3: ВОПРОСЫ 1-5 -->
+<div class="slide">
+  <h2>📝 Вопросы и ответы (Часть 1)</h2>
+  <div class="qa-block">
+    <div class="question">Вопрос 1. Как называется этот курс?</div>
+    <div class="answer"><b>Ответ:</b> Введение в Linux.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 2. С какими ОС у Linux общие корни?</div>
+    <div class="answer"><b>Ответ:</b> UNIX.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 3. Свободно ли ядро Linux?</div>
+    <div class="answer"><b>Ответ:</b> Свободно (Open Source).</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 4. Что такое дистрибутив Linux?</div>
+    <div class="answer"><b>Ответ:</b> Ядро, утилиты GNU и дополнительные программы.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 5. Поддерживает ли Linux многозадачность?</div>
+    <div class="answer"><b>Ответ:</b> Да, это многопользовательская и многозадачная ОС.</div>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 3</span>
+  </div>
+</div>
+<!-- СЛАЙД 4: ВОПРОСЫ 6-10 -->
+<div class="slide">
+  <h2>🛡️ Вопросы и ответы (Часть 2)</h2>
+  <div class="qa-block">
+    <div class="question">Вопрос 6. Какая программа ставит ПО в Linux (Fedora)?</div>
+    <div class="answer"><b>Ответ:</b> <code>dnf</code> (пакетный менеджер).</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 7. Какое расширение у пакетов в Ubuntu/Debian?</div>
+    <div class="answer"><b>Ответ:</b> Пакеты формата <code>.deb</code>.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 8. Кто автор плеера VLC из вкладки Authors?</div>
+    <div class="answer"><b>Ответ:</b> Denis-Courmont.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 9. Какие функции выполняет Update Manager?</div>
+    <div class="answer"><b>Ответ:</b> Обновление всей ОС, установленных программ и ссылок в Software Center.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 10. Как по-другому называют командную строку?</div>
+    <div class="answer"><b>Ответ:</b> Терминал, Консоль.</div>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 4</span>
+  </div>
+</div>
+<!-- СЛАЙД 5: ВОПРОСЫ 11-15 -->
+<div class="slide">
+  <h2>📂 Вопросы и ответы (Часть 3)</h2>
+  <div class="qa-block">
+    <div class="question">Вопрос 11. Какая команда показывает текущую директорию?</div>
+    <div class="answer"><b>Ответ:</b> Только <code>pwd</code>.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 12. Какие опции команды ls выводят скрытые файлы в виде списка?</div>
+    <div class="answer"><b>Ответ:</b> <code>ls -A -h -l</code>, <code>ls -Ahl</code> и их полные аналоги.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 13. Как увидеть папку Downloads из папки Documents?</div>
+    <div class="answer"><b>Ответ:</b> Использовать относительный путь <code>ls ../Downloads</code> или <code>ls ~/Downloads</code>.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 14. С какой опцией rm удаляет целые директории?</div>
+    <div class="answer"><b>Ответ:</b> С опцией рекурсивного удаления <code>rm -r</code>.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 15. Закроется ли терминал, если запустить firefox и ввести exit?</div>
+    <div class="answer"><b>Ответ:</b> Никто не закроется, так как терминал занят процессом.</div>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 5</span>
+  </div>
+</div>
+<!-- СЛАЙД 6: ВОПРОСЫ 16-20 -->
+<div class="slide">
+  <h2>⚙️ Вопросы и ответы (Часть 4)</h2>
+  <div class="qa-block">
+    <div class="question">Вопрос 16. Как отправить запущенную программу в фоновый режим?</div>
+    <div class="answer"><b>Ответ:</b> Нажать <code>Ctrl+Z</code>, затем ввести команду <code>bg</code>.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 17 (Практика). Какая контрольная сумма получилась у скачанного скрипта?</div>
+    <div class="answer"><b>Ответ:</b> Control sum: 942.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 18. Куда по умолчанию выводится поток ошибок stderr?</div>
+    <div class="answer"><b>Ответ:</b> Выводится на экран.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 19. Как записать поток ошибок stderr в файл file.txt?</div>
+    <div class="answer"><b>Ответ:</b> Командами <code>program 2> file.txt</code> или <code>program 2>> file.txt</code>.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 20. Куда девается поток stderr программ в конвейере (pipe)?</div>
+    <div class="answer"><b>Ответ:</b> Поток ошибок от конвейера всё равно выводится на экран.</div>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 6</span>
+  </div>
+</div>
+<!-- СЛАЙД 7: ВОПРОСЫ 21-25 -->
+<div class="slide">
+  <h2>🔄 Вопросы и ответы (Часть 5)</h2>
+  <div class="qa-block">
+    <div class="question">Вопрос 21. В каком файле окажется картинка после wget -P /home/alex/Pictures -O 1.jpg?</div>
+    <div class="answer"><b>Ответ:</b> В файле <code>/home/alex/1.jpg</code> (опция -O имеет высший приоритет).</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 22. Какая опция wget отключает вывод логов на экран?</div>
+    <div class="answer"><b>Ответ:</b> Опция «тихого» режима: <code>-q</code> или <code>--quiet</code>.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 23. Какие файлы скачает wget с опциями -r -l 1 -A jpg?</div>
+    <div class="answer"><b>Ответ:</b> Скачает .jpg и .html, но все файлы .html затем будут автоматически удалены.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 24. Чем отличаются утилиты архивации gzip и zip?</div>
+    <div class="answer"><b>Ответ:</b> Утилита <code>gzip</code> автоматически удаляет исходный файл-архив после его распаковки.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 25. Какие архиваторы умеют упаковывать целые директории с файлами?</div>
+    <div class="answer"><b>Ответ:</b> Архиваторы <code>zip</code> и <code>tar</code>.</div>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 7</span>
+  </div>
+</div>
+<!-- СЛАЙД 8: ВОПРОСЫ 26-29 -->
+<div class="slide">
+  <h2>🔍 Вопросы и ответы (Часть 6)</h2>
+  <div class="qa-block">
+    <div class="question">Вопрос 26. Какие опции tar нужны для упаковки файлов в формат .tar.bz2?</div>
+    <div class="answer"><b>Ответ:</b> Опции создания, bzip2 и указания файла: <code>-cjf</code>.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 27. Какая маска команды find НЕ найдёт файл Alexey.jpeg?</div>
+    <div class="answer"><b>Ответ:</b> Маски: <code>*.jpg</code>, <code>alexey.*</code>, <code>*.?</code>.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 28. Какие строки выведет команда grep "world" text.txt?</div>
+    <div class="answer"><b>Ответ:</b> Строки со словом "world" в нижнем регистре, включая варианты в кавычках или через дефис.</div>
+  </div>
+  <div class="qa-block">
+    <div class="question">Вопрос 29 (Практика). Как собрать все строки со словом "love" из книг Шекспира?</div>
+    <div class="answer"><b>Ответ:</b> Отфильтровать исходный файл утилитой <code>grep</code> и перенаправить поток вывода в итоговый текстовый файл.</div>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 8</span>
+  </div>
+</div>
+<!-- СЛАЙД 9: ВЫВОДЫ И ПОЛЬЗА -->
+<div class="slide">
+  <h2>🏆 Выводы и полезные навыки</h2>
+  <div class="qa-block">
+    <ul>
+      <li><b>Итоговый вывод:</b> Контрольные мероприятия первого раздела успешно пройдены. На практике освоены ключевые инструменты администрирования файловой структуры, управления потоками <code>stderr</code> и фильтрации текста в Linux.</li>
+      <li><b>Что было полезно для научно-инженерного работника:</b>
+        <ul>
+          <li>Получены навыки автоматизации рутинных задач с помощью регулярных выражений и утилиты <code>grep</code>.</li>
+          <li>Изучена логика изоляции потоков и перенаправления ошибок, что необходимо для корректного логирования сложных научных расчётов.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 9</span>
+  </div>
+</div>
+
+            
+            
+        </body>
+        </html>

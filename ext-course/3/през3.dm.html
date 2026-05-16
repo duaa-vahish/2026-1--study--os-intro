@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&Pcy;&rcy;&iecy;&zcy;&iecy;&ncy;&tcy;&acy;&tscy;&icy;&yacy; &pcy;&ocy; &vcy;&ncy;&iecy;&shcy;&ncy;&iecy;&mcy;&ucy; &kcy;&ucy;&rcy;&scy;&ucy;&colon; &Vcy;&vcy;&iecy;&dcy;&iecy;&ncy;&icy;&iecy; &vcy; Linux</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="презентация-по-внешнему-курсу-введение-в-linux">Презентация по внешнему курсу: Введение в Linux</h1>
+<h2 id="контрольные-мероприятия-раздел-3-vim-bash-поиск-sed-gnuplot">Контрольные мероприятия: Раздел 3 (vim, bash, поиск, sed, gnuplot)</h2>
+<p><strong>Выполнила: Вахиш Дуаа Иссам Али Ахмед</strong><br>
+<strong>Направление: фундаментальная информатика и информационные технологии</strong></p>
+<hr>
+<h2 id="цели-и-задачи-защиты-раздел-3">Цели и задачи защиты (Раздел 3)</h2>
+<p>• Редактор vim: выход, перемещение по словам, замена, визуальный режим.<br>
+• Скрипты bash: переменные, условия, циклы, арифметика, функции.<br>
+• Продвинутый поиск: <code>find</code>, <code>grep</code>, <code>sed</code>.<br>
+• Построение графиков: <code>gnuplot</code>, опции <code>-persist</code>, настройка осей.</p>
+<hr>
+<h2 id="вопросы-и-ответы-31--32">Вопросы и ответы (3.1 – 3.2)</h2>
+<p><strong>Вопрос 1. Как выйти из vim сразу после открытия?</strong><br>
+<strong>Ответ:</strong> <code>&quot;:&quot;</code>, затем <code>&quot;q&quot;</code>, затем <code>&quot;Enter&quot;</code>.</p>
+<p><strong>Вопрос 2. Перемещение по словам (word vs WORD) – верное утверждение?</strong><br>
+<strong>Ответ:</strong> Нажимая только на <code>W</code>, нельзя переместить курсор на <code>&quot;.&quot;</code>.</p>
+<p><strong>Вопрос 3. Замена <code>Windows</code> → <code>Linux</code> (первое вхождение в строке) – команда vim?</strong><br>
+<strong>Ответ:</strong> <code>%s/Windows/Linux</code>.</p>
+<p><strong>Вопрос 4. Режим выделения (Visual) в vim – верные утверждения?</strong><br>
+<strong>Ответ:</strong> Можно использовать перемещение, команды <code>d</code> и <code>y</code>, открывается по <code>V</code>.</p>
+<p><strong>Вопрос 5. История команд во вложенных оболочках (bash → sh → bash)?</strong><br>
+<strong>Ответ:</strong> Только из последнего набора (C).</p>
+<hr>
+<h2 id="вопросы-и-ответы-33--34">Вопросы и ответы (3.3 – 3.4)</h2>
+<p><strong>Вопрос 6. Условия, всегда истинные в bash?</strong><br>
+<strong>Ответ:</strong> <code>$var1 == $var2 || $var1 != $var2</code>, <code>!(4 -le 3)</code>, <code>-z &quot;&quot;</code>, <code>$# -ge 0</code>.</p>
+<p><strong>Вопрос 7. Цикл <code>for str in a, b, c_d</code> – сколько раз &quot;start&quot; и &quot;finish&quot;?</strong><br>
+<strong>Ответ:</strong> 3 раза &quot;start&quot;, 2 раза &quot;finish&quot;.</p>
+<p><strong>Вопрос 8. Скрипт для числа студентов (0 → No students, 1 → 1 student, 2–4 → N students, ≥5 → A Lot of students)?</strong><br>
+<strong>Ответ:</strong> Использовать <code>if-elif-else</code> с проверками.</p>
+<p><strong>Вопрос 9. Бесконечный цикл с вводом имени и возраста, группы child/youth/adult?</strong><br>
+<strong>Ответ:</strong> <code>while true; do read name; if [[ -z $name ]]; then break; fi; read age; ...; done</code>.</p>
+<p><strong>Вопрос 10. Инструкции <code>let</code> для увеличения <code>a</code> на <code>b</code>?</strong><br>
+<strong>Ответ:</strong> <code>let &quot;a+=b&quot;</code>, <code>let a=$a+$b</code>, <code>let a=a+b</code>, <code>let &quot;a=$a+$b&quot;</code>.</p>
+<p><strong>Вопрос 11. Вывод <code>echo &quot; pwd &quot;</code> в скрипте?</strong><br>
+<strong>Ответ:</strong> <code>pwd</code> (строка, а не результат команды).</p>
+<p><strong>Вопрос 12. Проверка кода возврата программы, выводящей в stdout?</strong><br>
+<strong>Ответ:</strong> <code>program; if [[ $? -eq 0 ]]; then ...</code> или <code>if program &gt; file; then ...</code>.</p>
+<p><strong>Вопрос 13. Функция <code>counter</code> – что выведет <code>echo &quot;counters are $c1 and $c2&quot;</code>?</strong><br>
+<strong>Ответ:</strong> <code>counters are and 110</code>.</p>
+<p><strong>Вопрос 14. Скрипт для НОД (алгоритм Евклида)?</strong><br>
+<strong>Ответ:</strong> Функция <code>gcd</code> с циклом <code>while [ $b -ne 0 ]; do t=$b; b=$((a % b)); a=$t; done; echo $a</code>.</p>
+<p><strong>Вопрос 15. Калькулятор на bash с операциями <code>+ - * / % **</code>?</strong><br>
+<strong>Ответ:</strong> <code>while read op1 oper op2; do case $oper in ... esac; done</code>.</p>
+<hr>
+<h2 id="вопросы-и-ответы-35--36">Вопросы и ответы (3.5 – 3.6)</h2>
+<p><strong>Вопрос 16. <code>find /home/bi -iname &quot;star*&quot;</code> vs <code>-name &quot;star*&quot;</code> – какие файлы найдёт только <code>-iname</code>?</strong><br>
+<strong>Ответ:</strong> <code>Star_Wars.avi</code> (разный регистр).</p>
+<p><strong>Вопрос 17. Верные утверждения про <code>-path</code> и <code>-name</code>?</strong><br>
+<strong>Ответ:</strong> «Если заменить <code>-name</code> на <code>-path</code>, результат иногда может остаться таким же» и «<code>-name</code> может найти меньше файлов, чем <code>-path</code>».</p>
+<p><strong>Вопрос 18. <code>find /home/bi -mindepth 2 -maxdepth 3 -name &quot;file*&quot;</code> – что найдёт?</strong><br>
+<strong>Ответ:</strong> Ничего (файлы на глубине 1).</p>
+<p><strong>Вопрос 19. <code>grep -C 1</code> vs <code>-A 1</code> vs <code>-B 1</code> – какой даст наибольший файл?</strong><br>
+<strong>Ответ:</strong> <code>grep -C 1</code>.</p>
+<p><strong>Вопрос 20. <code>grep -E &quot;[xklXKL]?[uU]buntu$&quot;</code> – какие строки подходят?</strong><br>
+<strong>Ответ:</strong> <code>The best OS is Xubuntu</code>, <code>I prefer Kubuntu</code>.</p>
+<p><strong>Вопрос 21. Что будет, если в <code>sed -n &quot;/[a-z]*/p&quot;</code> убрать <code>-n</code>?</strong><br>
+<strong>Ответ:</strong> Будут выведены все строки файла.</p>
+<p><strong>Вопрос 22. Инструкция <code>sed</code> для замены аббревиатур (две и более заглавные буквы) на &quot;abbreviation&quot;?</strong><br>
+<strong>Ответ:</strong> <code>sed 's/\&lt;[A-Z]\{2,\}\&gt;/abbreviation/g' input.txt &gt; edited.txt</code>.</p>
+<p><strong>Вопрос 23. Опция <code>gnuplot</code> для сохранения графиков после выхода?</strong><br>
+<strong>Ответ:</strong> <code>-p</code> или <code>--persist</code>.</p>
+<p><strong>Вопрос 24. <code>gnuplot</code>: <code>set key autotitle columnhead</code> и <code>plot</code> без заголовков – название ряда и число точек?</strong><br>
+<strong>Ответ:</strong> Название &quot;noname&quot;, 10 точек.</p>
+<p><strong>Вопрос 25. <code>gnuplot</code>: установка делений на оси OX по переменным <code>x1,x2,x3</code> с подписями &quot;point 1, value ...&quot;?</strong><br>
+<strong>Ответ:</strong> <code>set xtics (&quot;point 1, value &quot;.x1 x1, &quot;point 2, value &quot;.x2 x2, &quot;point 3, value &quot;.x3 x3)</code>.</p>
+<hr>
+<h2 id="итоговый-вывод-программист">Итоговый вывод (программист)</h2>
+<p>• Все задания третьего раздела выполнены.<br>
+• Полезные навыки: работа с <code>vim</code>, написание скриптов на <code>bash</code> (условия, циклы, функции), использование <code>find</code>, <code>grep</code>, <code>sed</code> для обработки текста, основы <code>gnuplot</code>.<br>
+• Эти навыки необходимы для автоматизации задач, администрирования и анализа данных в Linux.</p>
+<p><strong>Спасибо за внимание!</strong></p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>

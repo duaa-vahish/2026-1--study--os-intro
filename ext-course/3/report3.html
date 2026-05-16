@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>report3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<center>
+# Отчёт по курсу "Введение в Linux"
+## Часть 3: Редактор vim, скрипты bash (разделы 3.1 – 3.3)
+<p><strong>Вахиш Дуаа Иссам Али Ахмед</strong></p>
+<p><strong>2026-05-16</strong></p>
+</center>
+<div style="page-break-before:always"></div>
+<h2 id="цель-работы">Цель работы</h2>
+<p>Закрепить практические навыки работы с редактором <strong>vim</strong> и написания скриптов на <strong>bash</strong> (переменные, условия, циклы).</p>
+<h2 id="задание">Задание</h2>
+<p>Выполнить тестовые и практические задания по темам:</p>
+<ul>
+<li>3.1 Текстовый редактор vim</li>
+<li>3.2 Скрипты bash: основы</li>
+<li>3.3 Скрипты bash: ветвления и циклы</li>
+</ul>
+<div style="page-break-before:always"></div>
+<h2 id="выполнение">Выполнение</h2>
+<h3 id="31-текстовый-редактор-vim">3.1 Текстовый редактор vim</h3>
+<h4 id="вопрос-1-как-выйти-из-vim-сразу-после-открытия">Вопрос 1. Как выйти из vim сразу после открытия?</h4>
+<p><img src="./images3/1m_before.png" alt="Вопрос 1">
+<img src="./images3/1m_after.png" alt="Ответ 1"></p>
+<p><strong>Пояснение:</strong> В нормальном режиме нажимаем <code>:</code> для входа в командную строку, затем <code>q</code> и Enter. Просто <code>q</code> или <code>Ctrl+X</code> не работают.</p>
+<hr>
+<h4 id="вопрос-2-перемещение-по-словам-word-vs-word-в-строке-strange_-text-is_here--22-yes">Вопрос 2. Перемещение по словам (word vs WORD) в строке <code>Strange_ TEXT is_here . 2=2 YES!</code></h4>
+<p><img src="./images3/2m_before.png" alt="Вопрос 2">
+<img src="./images3/2m_after.png" alt="Ответ 2"></p>
+<p><strong>Пояснение:</strong> Правильное утверждение: «Нажимая только на W, нельзя переместить курсор на &quot;.&quot;». Большая <code>W</code> пропускает пробелы и останавливается на следующем WORD, поэтому на сам пробел курсор не встаёт. Остальные утверждения неверны.</p>
+<hr>
+<h4 id="вопрос-3-преобразование-строки-one-two-three-four-five--three-four-four-four-five">Вопрос 3. Преобразование строки <code>one two three four five</code> → <code>three four four four five</code></h4>
+<p><img src="./images3/3m_before.png" alt="Вопрос 3">
+<img src="./images3/3m_after.png" alt="Ответ 3"></p>
+<p><strong>Пояснение:</strong> Правильные наборы клавиш: <code>d2wwywPp</code>, <code>ddithree four four four five &lt;Esc&gt;</code>, <code>d2w$bifour four &lt;Esc&gt;</code>. Они удаляют первые два слова и вставляют нужный текст.</p>
+<hr>
+<h4 id="вопрос-4-команда-замены-windows--linux-первое-вхождение-в-строке">Вопрос 4. Команда замены <code>Windows</code> → <code>Linux</code> (первое вхождение в строке)</h4>
+<p><img src="./images3/m4_before.png" alt="Вопрос 4">
+<img src="./images3/4m_after.png" alt="Ответ 4"></p>
+<p><strong>Пояснение:</strong> В vim команда <code>:%s/Windows/Linux</code> заменяет первое вхождение <code>Windows</code> на <code>Linux</code> в каждой строке.</p>
+<hr>
+<h4 id="вопрос-5-режим-выделения-visual-в-vim">Вопрос 5. Режим выделения (Visual) в vim</h4>
+<p><img src="./images3/5m_before.png" alt="Вопрос 5">
+<img src="./images3/5m_after.png" alt="Ответ 5"></p>
+<p><strong>Пояснение:</strong> Верные утверждения:</p>
+<ul>
+<li>В режиме выделения можно использовать перемещение (W, e, $ и др.).</li>
+<li>Можно использовать <code>d</code> и <code>y</code>.</li>
+<li>Режим открывается из нормального по нажатию <code>V</code>.<br>
+Остальные варианты неверны.</li>
+</ul>
+<hr>
+<h3 id="32-скрипты-на-bash-основы">3.2 Скрипты на bash: основы</h3>
+<h4 id="вопрос-6-история-команд-во-вложенных-оболочках">Вопрос 6. История команд во вложенных оболочках</h4>
+<p><img src="./images3/6m_before.png" alt="Вопрос 6">
+<img src="./images3/6m_after.png" alt="Ответ 6"></p>
+<p><strong>Пояснение:</strong> Каждая оболочка имеет свою историю. В последней <code>bash</code> будут только команды, набранные в ней (набор C).</p>
+<hr>
+<h4 id="вопрос-7-создание-файла-в-скрипте-с-cd">Вопрос 7. Создание файла в скрипте с <code>cd</code></h4>
+<p><img src="./images3/7m_before.png" alt="Вопрос 7">
+<img src="./images3/7m_after.png" alt="Ответ 7"></p>
+<p><strong>Пояснение:</strong> Скрипт переходит в <code>/home/bi/</code> и создаёт файл <code>file1.txt</code> там. Последующий <code>cd</code> не меняет расположение уже созданного файла. Абсолютный путь – <code>/home/bi/file1.txt</code>.</p>
+<hr>
+<h4 id="вопрос-8-имена-переменных-в-bash">Вопрос 8. Имена переменных в bash</h4>
+<p><img src="./images3/8m_before.png" alt="Вопрос 8">
+<img src="./images3/8m_after.png" alt="Ответ 8"></p>
+<p><strong>Пояснение:</strong> Допустимы <code>variable_123</code>, <code>_variable</code>, <code>VARIable</code>. Имя может содержать буквы, цифры, подчёркивание, не может начинаться с цифры.</p>
+<hr>
+<h4 id="вопрос-9-написание-скрипта-с-двумя-аргументами">Вопрос 9. Написание скрипта с двумя аргументами</h4>
+<p><img src="./images3/9m_before.png" alt="Вопрос 9">
+<img src="./images3/9m_after.png" alt="Ответ 9"></p>
+<hr>
+<h3 id="33-скрипты-на-bash-ветвеления-и-циклы">3.3 Скрипты на bash: ветвеления и циклы</h3>
+<h4 id="вопрос-10-выберите-все-условия-которые-всегда-истинны-не-зависят-от-переменных-и-аргументов-скрипта">Вопрос 10. Выберите все условия, которые всегда истинны (не зависят от переменных и аргументов скрипта).</h4>
+<p><img src="./images3/10m_before.png" alt="Вопрос 6">
+<img src="./images3/10m_after.png" alt="Ответ 6"></p>
+<p><strong>Пояснение:</strong> Правильные условия: $var1 == $var2 || $var1 != $var2 (логическое ИЛИ всегда истинно), !(4 -le 3) (4≤3 – ложь, отрицание – истина), -z &quot;&quot; (пустая строка – истина), $# -ge 0 (количество аргументов всегда ≥0). Остальные зависят от переменных.</p>
+<hr>
+<h4 id="вопрос-11--что-выведет-фрагмент-bash-скрипта-с-ifelifelse-при-var3-и-затем-при-var5">Вопрос 11.  Что выведет фрагмент bash-скрипта с if/elif/else при var=3 и затем при var=5?</h4>
+<p><img src="./images3/11m_before.png" alt="Вопрос 7">
+<img src="./images3/11m_after.png" alt="Ответ 7"></p>
+<p><strong>Пояснение:</strong> При var=3 – все условия ложны, идёт else → four. При var=5 – также все ложны → four. Однако правильный ответ по заданию – сначала four, потом one (возможно, тест подразумевает что-то другое или опечатка, но мы даём ответ из системы).</p>
+<hr>
+<h4 id="вопрос-12-в-цикле-for-str-in-a-b-c_d-с-условием-if--str--c--сколько-раз-выведутся-start-и-finish">Вопрос 12. В цикле for str in a, b, c_d с условием if [[ $str &gt; &quot;c&quot; ]] сколько раз выведутся &quot;start&quot; и &quot;finish&quot;?</h4>
+<p><img src="./images3/12m_before.png" alt="Вопрос 8">
+<img src="./images3/12m_after.png" alt="Ответ 8"></p>
+<p><strong>Пояснение:</strong> Три итерации. Для a, и b, условие ложно – выводится finish. Для c_d условие истинно – continue, finish не выводится. Итого 3 раза start, 2 раза finish.</p>
+<hr>
+<h4 id="вопрос-13-напишите-скрипт-который-по-числу-студентов-аргумент-выводит-0--no-students-1--1-student-2-4--n-students-5-и-больше--a-lot-of-students">Вопрос 13. Напишите скрипт, который по числу студентов (аргумент) выводит: 0 → &quot;No students&quot;, 1 → &quot;1 student&quot;, 2-4 → &quot;N students&quot;, 5 и больше → &quot;A Lot of students&quot;.</h4>
+<p><img src="./images3/13m_before.png" alt="Вопрос 9">
+<img src="./images3/13m_after.png" alt="Ответ 9"></p>
+<p>**Пояснение:**Скрипт использует if-elif-else: проверки -eq 0, -eq 1, -ge 2 &amp;&amp; -le 4, иначе A Lot of students.</p>
+<h3 id="вопрос-14-напишите-бесконечный-цикл-который-читает-имя-и-возраст-выводит-группу-child-youth-adult-и-завершается-при-пустом-имени-или-возрасте-0">Вопрос 14. Напишите бесконечный цикл, который читает имя и возраст, выводит группу (child, youth, adult) и завершается при пустом имени или возрасте 0.</h3>
+<p>[Вопрос 14] (./images3/14m_before.png)
+[Ответ 14] (./images3/14m_after.png)</p>
+<p><strong>Пояснение:</strong>
+Скрипт: <code>while true; do read name; if [[ -z $name ]]; then echo bye; break; fi; read age; if [[ $age -eq 0 ]]; then echo bye; break; fi; if [[ $age -le 16 ]]; then group=child; elif [[ $age -le 25 ]]; then group=youth; else group=adult; fi; echo &quot;$name, your group is $group&quot;; done</code></p>
+<hr>
+<h3 id="вопрос-15-какие-инструкции-увеличивают-переменную-a-на-значение-b-например-было-10-и-5--стало-15">Вопрос 15. Какие инструкции увеличивают переменную <code>a</code> на значение <code>b</code> (например, было 10 и 5 → стало 15)?</h3>
+<p>[Вопрос 15] (./images3/15m_before.png)
+[Ответ 15] (./images3/15m_after.png)</p>
+<p><strong>Пояснение:</strong>
+Правильные варианты: <code>let &quot;a+=b&quot;</code>, <code>let a=$a+$b</code>, <code>let a=a+b</code>, <code>let &quot;a=$a+$b&quot;</code>. Пробелы в <code>let &quot;a = a + b&quot;</code> недопустимы.</p>
+<hr>
+<h3 id="вопрос-16-что-выведет-команда-echo--pwd--в-скрипте-после-cd-homebi">Вопрос 16. Что выведет команда <code>echo &quot; pwd &quot;</code> в скрипте после <code>cd /home/bi/</code>?</h3>
+<p>[Вопрос 16] (./images3/16m_before.png)
+[Ответ 16] (./images3/16m_after.png)</p>
+<p><strong>Пояснение:</strong>
+Двойные кавычки не выполняют команду, а выводят строку. На экране будет <code>pwd</code> (строка, а не результат выполнения <code>pwd</code>).</p>
+<hr>
+<h3 id="вопрос-17-как-правильно-проверить-код-возврата-программы-которая-пишет-в-stdout">Вопрос 17. Как правильно проверить код возврата программы, которая пишет в stdout?</h3>
+<p>[Вопрос 17] (./images3/17m_before.png)
+[Ответ 17] (./images3/17m_after.png)</p>
+<p><strong>Пояснение:</strong>
+Нужно сначала запустить программу, затем проверить <code>$?</code>, или использовать <code>if program &gt; some_file.txt</code> (перенаправление вывода, но проверяется код возврата). Правильные способы: <code>program; if [[ $? -eq 0 ]]; then ...</code> или <code>if program &gt; file; then ...</code>.</p>
+<h3 id="вопрос-18-в-цикле-for-str-in-a-b-c_d-с-условием-if--str--c--сколько-раз-выведутся-start-и-finish">Вопрос 18. В цикле <code>for str in a, b, c_d</code> с условием <code>if [[ $str &gt; &quot;c&quot; ]]</code> сколько раз выведутся &quot;start&quot; и &quot;finish&quot;?</h3>
+<p>[Вопрос 18] (./images3/18_before.png)
+[Ответ 18] (./images3/18_after.png)</p>
+<p><strong>Пояснение:</strong>
+Три итерации. Для <code>a,</code> и <code>b,</code> условие ложно – выводится <code>finish</code>. Для <code>c_d</code> условие истинно – <code>continue</code>, <code>finish</code> не выводится. Итого 3 раза <code>start</code>, 2 раза <code>finish</code>.</p>
+<hr>
+<h3 id="вопрос-19-какие-инструкции-увеличивают-переменную-a-на-значение-b-например-было-10-и-5--стало-15">Вопрос 19. Какие инструкции увеличивают переменную <code>a</code> на значение <code>b</code> (например, было 10 и 5 → стало 15)?</h3>
+<p>[Вопрос 19] (./images3/19_before.png)
+[Ответ 19] (./images3/19_after.png)</p>
+<p><strong>Пояснение:</strong>
+Правильные варианты: <code>let &quot;a+=b&quot;</code>, <code>let a=$a+$b</code>, <code>let a=a+b</code>, <code>let &quot;a=$a+$b&quot;</code>. Пробелы в <code>let &quot;a = a + b&quot;</code> недопустимы.</p>
+<hr>
+<h3 id="вопрос-20-что-выведет-команда-echo--pwd--в-скрипте-после-cd-homebi">Вопрос 20. Что выведет команда <code>echo &quot; pwd &quot;</code> в скрипте после <code>cd /home/bi/</code>?</h3>
+<p>[Вопрос 20] (./images3/20_before.png)
+[Ответ 20] (./images3/20_after.png)</p>
+<p><strong>Пояснение:</strong>
+Двойные кавычки не выполняют команду, а выводят строку. На экране будет <code>pwd</code> (строка, а не результат выполнения <code>pwd</code>).</p>
+<p>(Без темы)</p>
+<p>Дуаа Иссам Али Ахмед Вахиш
+1132259465@rudn.ru
+сегодня в 10:43
+Я</p>
+<h3 id="вопрос-21-как-правильно-проверить-код-возврата-программы-которая-пишет-в-stdout">Вопрос 21. Как правильно проверить код возврата программы, которая пишет в stdout?</h3>
+<p>[Вопрос 21] (./images3/21_before.png)
+[Ответ 21] (./images3/21_after.png)</p>
+<p><strong>Пояснение:</strong>
+Нужно сначала запустить программу, затем проверить <code>$?</code>, или использовать <code>if program &gt; some_file.txt</code> (перенаправление вывода, но проверяется код возврата). Правильные способы: <code>program; if [[ $? -eq 0 ]]; then ...</code> или <code>if program &gt; file; then ...</code>.</p>
+<hr>
+<h3 id="вопрос-22-в-функции-counter--local-let-c11-let-c212--после-десяти-вызовов-с-аргументами-1210-что-выведет-echo-counters-are-c1-and-c2">Вопрос 22. В функции <code>counter() { local let &quot;c1+=$1&quot;; let &quot;c2+=$1*2&quot;; }</code> после десяти вызовов с аргументами 1,2,…,10 что выведет <code>echo &quot;counters are $c1 and $c2&quot;</code>?</h3>
+<p>[Вопрос 22] (./images3/22_before.png)
+[Ответ 22] (./images3/22_after.png)</p>
+<p><strong>Пояснение:</strong>
+<code>local</code> делает <code>c1</code> локальной переменной, поэтому после вызовов <code>c1</code> не сохраняется (пустая). <code>c2</code> вычисляется: сумма 1+...+10 = 55, умножаем на 2 → 110. Вывод: <code>counters are and 110</code>.</p>
+<hr>
+<h3 id="вопрос-23-напишите-скрипт-для-нахождения-нод-двух-чисел-алгоритм-евклида">Вопрос 23. Напишите скрипт для нахождения НОД двух чисел (алгоритм Евклида).</h3>
+<p>[Вопрос 23] (./images3/23_before.png)
+[Ответ 23] (./images3/23_after.png)</p>
+<p><strong>Пояснение:</strong>
+Скрипт использует функцию <code>gcd</code> с циклом <code>while [ $b -ne 0 ]; do t=$b; b=$((a % b)); a=$t; done; echo $a</code>. В цикле читаются два числа, при пустом вводе – выход с <code>bye</code>.</p>
+<hr>
+<h3 id="вопрос-24-напишите-калькулятор-на-bash-который-читает-строки-вида-10--1-вычисляет-результат-для-exit--bye-для-ошибок--error">Вопрос 24. Напишите калькулятор на bash, который читает строки вида <code>10 + 1</code>, вычисляет результат, для <code>exit</code> – <code>bye</code>, для ошибок – <code>error</code>.</h3>
+<p>[Вопрос 24] (./images3/24_before.png)
+[Ответ 24] (./images3/24_after.png)</p>
+<p><strong>Пояснение:</strong>
+Скрипт: <code>while read op1 oper op2; do if [[ &quot;$op1&quot; == &quot;exit&quot; ]]; then echo bye; break; elif [[ -z &quot;$op2&quot; ]]; then echo error; break; else case $oper in ... esac; echo $result; fi; done</code>. Поддерживаются <code>+ - * / % **</code>.</p>
+<hr>
+<h3 id="вопрос-25-в-директории-homebi-файлы-star_warsavi-star_trek_ostmp3-starstxt-stardustmpeg-eddard_stark_biographytxt-какие-найдёт-find-homebi--iname-star-но-не-найдёт--name-star">Вопрос 25. В директории <code>/home/bi/</code> файлы: <code>Star_Wars.avi</code>, <code>star_trek_OST.mp3</code>, <code>STARS.txt</code>, <code>stardust.mpeg</code>, <code>Eddard_Stark_biography.txt</code>. Какие найдёт <code>find /home/bi -iname &quot;star*&quot;</code> но не найдёт <code>-name &quot;star*&quot;</code>?</h3>
+<p>[Вопрос 25] (./images3/25_before.png)
+[Ответ 25] (./images3/25_after.png)</p>
+<p><strong>Пояснение:</strong>
+<code>-iname</code> игнорирует регистр. Файлы, отличающиеся регистром: <code>Star_Wars.avi</code> (большая S). Остальные не подходят.</p>
+<hr>
+<h3 id="вопрос-26-выберите-верные-утверждения-про-опции--path-и--name-команды-find">Вопрос 26. Выберите верные утверждения про опции <code>-path</code> и <code>-name</code> команды <code>find</code>.</h3>
+<p>[Вопрос 26] (./images3/26_before.png)
+[Ответ 26] (./images3/26_after.png)</p>
+<p><strong>Пояснение:</strong>
+Верно: «Если заменить в команде поиска <code>-name</code> на <code>-path</code>, то результат поиска иногда может остаться таким же» и «В некоторых случаях <code>find</code> с <code>-name</code> найдет меньше файлов, чем с <code>-path</code>». Остальные неверны.</p>
+<hr>
+<h3 id="вопрос-27-структура-homebi-содержит-три-файла-file1-file2-file3-на-глубине-1-что-найдёт-find-homebi--mindepth-2--maxdepth-3--name-file">Вопрос 27. Структура: <code>/home/bi/</code> содержит три файла <code>file1</code>, <code>file2</code>, <code>file3</code> на глубине 1. Что найдёт <code>find /home/bi -mindepth 2 -maxdepth 3 -name &quot;file*&quot;</code>?</h3>
+<p>[Вопрос 27] (./images3/27_before.png)
+[Ответ 27] (./images3/27_after.png)</p>
+<p><strong>Пояснение:</strong>
+Указаны глубины от 2 до 3, а файлы на глубине 1. Ни один файл не будет найден.</p>
+<hr>
+<h3 id="вопрос-28-в-файле-10-строк-каждая-содержит-слово-word-какая-команда-grep--a-1--b-1--c-1-создаст-файл-наибольшего-размера">Вопрос 28. В файле 10 строк, каждая содержит слово &quot;word&quot;. Какая команда <code>grep -A 1</code>, <code>-B 1</code>, <code>-C 1</code> создаст файл наибольшего размера?</h3>
+<p>[Вопрос 28] (./images3/28_before.png)
+[Ответ 28] (./images3/28_after.png)</p>
+<p><strong>Пояснение:</strong>
+<code>-C 1</code> выводит строку контекста и до, и после, поэтому файл будет самым большим.</p>
+<hr>
+<h3 id="вопрос-29-какие-строки-выведет-grep--e-xklxkluubuntu-из-списка">Вопрос 29. Какие строки выведет <code>grep -E &quot;[xklXKL]?[uU]buntu$&quot;</code> из списка?</h3>
+<p>[Вопрос 29] (./images3/29_before.png)
+[Ответ 29] (./images3/29_after.png)</p>
+<p><strong>Пояснение:</strong>
+Шаблон ищет <code>ubuntu</code>, <code>Xubuntu</code>, <code>Kubuntu</code> в конце строки. Подходят: <code>The best OS is Xubuntu</code> и <code>I prefer Kubuntu</code>. Остальные не подходят.</p>
+<hr>
+<h3 id="вопрос-30-что-произойдёт-если-в-sed--n-a-zp-убрать--n">Вопрос 30. Что произойдёт, если в <code>sed -n &quot;/[a-z]*/p&quot;</code> убрать <code>-n</code>?</h3>
+<p>[Вопрос 30] (./images3/30_before.png)
+[Ответ 30] (./images3/30_after.png)</p>
+<p><strong>Пояснение:</strong>
+Без <code>-n</code> sed печатает каждую строку (стандартное поведение), а шаблон <code>/…/p</code> дополнительно печатает совпадения. На экран выведутся все строки файла.</p>
+<p>(Без темы)</p>
+<p>Дуаа Иссам Али Ахмед Вахиш
+1132259465@rudn.ru
+сегодня в 10:49
+Я</p>
+<h3 id="вопрос-31-запишите-инструкцию-sed-которая-заменит-все-аббревиатуры-две-и-более-заглавные-буквы-окружённые-пробелами-на-слово-abbreviation-в-файле-inputtxt-результат-запишет-в-editedtxt">Вопрос 31. Запишите инструкцию <code>sed</code>, которая заменит все аббревиатуры (две и более заглавные буквы, окружённые пробелами) на слово &quot;abbreviation&quot; в файле <code>input.txt</code>, результат запишет в <code>edited.txt</code>.</h3>
+<p>[Вопрос 31] (./images3/31_before.png)
+[Ответ 31] (./images3/31_after.png)</p>
+<p><strong>Пояснение:</strong>
+Правильная инструкция: <code>sed 's/\&lt;[A-Z]\{2,\}\&gt;/abbreviation/g' input.txt &gt; edited.txt</code> (или эквивалент с <code>[A-Z][A-Z]\+</code>). Границы слова <code>\&lt;</code> и <code>\&gt;</code> обязательны.</p>
+<hr>
+<h3 id="вопрос-32-какую-опцию-нужно-указать-при-запуске-gnuplot-чтобы-графики-не-закрывались-после-выхода-из-программы">Вопрос 32. Какую опцию нужно указать при запуске <code>gnuplot</code>, чтобы графики не закрывались после выхода из программы?</h3>
+<p>[Вопрос 32] (./images3/32_before.png)
+[Ответ 32] (./images3/32_after.png)</p>
+<p><strong>Пояснение:</strong>
+Опция <code>-p</code> или <code>--persist</code>.</p>
+<hr>
+<h3 id="вопрос-33-в-gnuplot-после-команд-set-key-autotitle-columnhead-и-plot-datacsv-using-12-в-файле-два-столбца-10-строк-без-заголовков-какое-будет-название-ряда-и-сколько-точек">Вопрос 33. В <code>gnuplot</code> после команд <code>set key autotitle columnhead</code> и <code>plot 'data.csv' using 1:2</code> (в файле два столбца, 10 строк, без заголовков) какое будет название ряда и сколько точек?</h3>
+<p>[Вопрос 33] (./images3/33_before.png)
+[Ответ 33] (./images3/33_after.png)</p>
+<p><strong>Пояснение:</strong>
+<code>autotitle columnhead</code> берёт первую строку как заголовок, но в файле нет заголовков – название будет пустым или &quot;noname&quot;. Точек будет 10 (первые строки не пропускаются, так как нет заголовка). В вариантах ответа – &quot;noname&quot;, 10 точек.</p>
+<hr>
+<h3 id="вопрос-34-в-gnuplot-нужно-установить-на-оси-ox-только-три-деления-в-координатах-из-переменных-x1-x2-x3-с-подписями-вида-point-1-value--впишите-команду">Вопрос 34. В <code>gnuplot</code> нужно установить на оси OX только три деления в координатах из переменных <code>x1, x2, x3</code> с подписями вида &quot;point 1, value ...&quot;. Впишите команду.</h3>
+<p>[Вопрос 34] (./images3/34_before.png)
+[Ответ 34] (./images3/34_after.png)</p>
+<p><strong>Пояснение:</strong>
+Команда: <code>set xtics (&quot;point 1, value &quot;.x1 x1, &quot;point 2, value &quot;.x2 x2, &quot;point 3, value &quot;.x3 x3)</code> (или с точкой с запятой). Используется конкатенация строк.</p>
+<hr>
+<h3 id="вопрос-35-измените-файл-moverot-так-чтобы-график-отразился-зеркально-по-вертикали-вращался-в-обратную-сторону-и-в-два-раза-быстрее-загрузите-изменённый-файл">Вопрос 35. Измените файл <code>move.rot</code> так, чтобы график отразился зеркально по вертикали, вращался в обратную сторону и в два раза быстрее. Загрузите изменённый файл.</h3>
+<p>[Вопрос 35] (./images3/35_before.png)
+[Ответ 35] (./images3/35_after.png)</p>
+<p><strong>Пояснение:</strong>
+Нужно изменить знак z-координаты (умножить на -1), изменить направление вращения (например, <code>zrot=(zrot-350)%360</code> или вычитать шаг), и уменьшить паузу (например, <code>pause 0.05</code> вместо 0.1). В примере из системы использовали <code>zrot=(zrot+350)%360</code> и <code>pause 0.05</code>.</p>
+<hr>
+<h3 id="вопрос-36-какие-команды-установят-файлу-filetxt-права-rwxr-xr---из-исходных-r--r--r--">Вопрос 36. Какие команды установят файлу <code>file.txt</code> права <code>rwxr-xr--</code> из исходных <code>r--r--r--</code>?</h3>
+<p>[Вопрос 36] (./images3/36_before.png)
+[Ответ 36] (./images3/36_after.png)</p>
+<p><strong>Пояснение:</strong>
+Правильные последовательности: <code>chmod ug+w file.txt; chmod u+x file.txt</code>, <code>chmod u+wx file.txt; chmod g+w file.txt</code>, <code>chmod 764 file.txt</code>. Остальные не подходят.</p>
+<hr>
+<h3 id="вопрос-37-после-создания-sudo-mkdir-dir-права-rwxr-xr-x-владелец-root-какие-команды-позволят-пользователю-user-из-группы-group-создавать-файлы-в-dir">Вопрос 37. После создания <code>sudo mkdir dir</code> (права <code>rwxr-xr-x</code>, владелец root). Какие команды позволят пользователю <code>user</code> из группы <code>group</code> создавать файлы в <code>dir</code>?</h3>
+<p>[Вопрос 37] (./images3/37_before.png)
+[Ответ 37] (./images3/37_after.png)</p>
+<p><strong>Пояснение:</strong>
+Нужно дать группе право на запись: <code>sudo chmod g+w dir</code>, или изменить владельца: <code>sudo chown user:group dir</code>. Варианты <code>sudo chown user:group dir</code> и <code>sudo chmod g+w dir</code> – верные.</p>
+<hr>
+<h3 id="вопрос-38-какие-характеристики-файла-можно-посчитать-командой-wc">Вопрос 38. Какие характеристики файла можно посчитать командой <code>wc</code>?</h3>
+<p>[Вопрос 38] (./images3/38_before.png)
+[Ответ 38] (./images3/38_after.png)</p>
+<p><strong>Пояснение:</strong>
+<code>wc</code> считает количество строк, слов, символов и байт. Длину самой длинной строки не считает. Ответ: количество строк, слов, символов, размер в байтах.</p>
+
+</body>
+</html>

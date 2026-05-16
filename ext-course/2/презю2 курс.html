@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title></title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <style>
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: #ffffff;
+  }
+  .slide {
+    width: 297mm;
+    height: 210mm;
+    box-sizing: border-box;
+    padding: 25mm 25mm 20mm 25mm;
+    position: relative;
+    page-break-after: always;
+    background: #ffffff;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #222222;
+  }
+  .title-slide {
+    padding-top: 60mm;
+    border-left: 15mm solid #003366;
+  }
+  h1 {
+    font-size: 32pt;
+    margin: 0 0 5mm 0;
+    color: #003366;
+  }
+  h2 {
+    font-size: 24pt;
+    color: #003366;
+    margin: 0 0 8mm 0;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 3mm;
+  }
+  .qa-block {
+    font-size: 16pt;
+    line-height: 1.5;
+    margin-bottom: 4mm;
+  }
+  .question {
+    font-weight: bold;
+    color: #0055a5;
+    margin-bottom: 1mm;
+    display: inline;
+  }
+  .answer {
+    background-color: #f9f9f9;
+    padding: 2mm 4mm;
+    border-left: 4px solid #28a745;
+    margin-bottom: 2mm;
+    border-radius: 4px;
+    display: inline;
+  }
+  .qa-line {
+    margin-bottom: 6mm;
+  }
+  code {
+    font-family: 'Consolas', monospace;
+    background-color: #eaeaea;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #c7254e;
+  }
+  .footer {
+    position: absolute;
+    bottom: 10mm;
+    left: 25mm;
+    right: 25mm;
+    font-size: 11pt;
+    color: #666666;
+    border-top: 1px solid #eeeeee;
+    padding-top: 2mm;
+    display: flex;
+    justify-content: space-between;
+  }
+  ul {
+    margin-top: 0;
+  }
+</style>
+<!-- СЛАЙД 1: ТИТУЛЬНЫЙ -->
+<div class="slide title-slide">
+  <h1>Презентация по внешнему курсу: Введение в Linux</h1>
+  <p style="font-size: 20pt; color: #555555; margin: 0 0 15mm 0;">Контрольные мероприятия: Все вопросы и ответы (Раздел 2)</p>
+  <p style="font-size: 15pt;">
+    <b>Выполнила:</b> Вахиш Дуаа Иссам Али Ахмед<br>
+    <b>Направление:</b> фундаментальная информатика и информационные технологии
+  </p>
+  <div class="footer">
+    <span>РКТ РУДН | 2026</span>
+    <span>Слайд 1</span>
+  </div>
+</div>
+<!-- СЛАЙД 2: ЦЕЛИ И ЗАДАЧИ -->
+<div class="slide">
+  <h2>Цели и задачи защиты</h2>
+  <div class="qa-block">
+    <ul>
+      <li>Закрепить практические навыки работы с удалёнными серверами, обмена файлами, управления процессами, использования многопоточных приложений и работы с терминальным мультиплексором tmux в среде Linux.</li>
+    </ul>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 2</span>
+  </div>
+</div>
+<!-- СЛАЙД 3: ВОПРОСЫ 1-5 (каждый вопрос+ответ в одной строке) -->
+<div class="slide">
+  <h2>Вопросы и ответы (Часть 1)</h2>
+  <div class="qa-line"><span class="question">Вопрос 1. Для каких задач можно использовать удалённый сервер?</span> <span class="answer"><b>Ответ:</b> Хранение конфиденциальных данных</span></div>
+  <div class="qa-line"><span class="question">Вопрос 2. Какой ключ SSH можно безопасно пересылать по интернету?</span> <span class="answer"><b>Ответ:</b> id_rsa.pub</span></div>
+  <div class="qa-line"><span class="question">Вопрос 3. Команда для копирования папки `stepic` на сервер?</span> <span class="answer"><b>Ответ:</b> scp -r stepic username@server:~/</span></div>
+  <div class="qa-line"><span class="question">Вопрос 4. Действия при ошибке `apt-get install program`?</span> <span class="answer"><b>Ответ:</b> sudo apt-get update, проверка интернет-соединения</span></div>
+  <div class="qa-line"><span class="question">Вопрос 5. Назначение программы FileZilla?</span> <span class="answer"><b>Ответ:</b> Для копирования файлов с сервера на свой компьютер</span></div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 3</span>
+  </div>
+</div>
+<!-- СЛАЙД 4: ВОПРОСЫ 6-10 (одной строкой) -->
+<div class="slide">
+  <h2>Вопросы и ответы (Часть 2)</h2>
+  <div class="qa-line"><span class="question">Вопрос 6. Что делать, если программе нужен графический экран?</span> <span class="answer"><b>Ответ:</b> Проверить, есть ли другая версия этой программы</span></div>
+  <div class="qa-line"><span class="question">Вопрос 7. Как получить справку о программе?</span> <span class="answer"><b>Ответ:</b> program --help или help program</span></div>
+  <div class="qa-line"><span class="question">Вопрос 8. Какие форматы данных принимает FastQC?</span> <span class="answer"><b>Ответ:</b> bam_mapped, sam_mapped, bam, sam</span></div>
+  <div class="qa-line"><span class="question">Вопрос 9. Команда для множественного выравнивания ClustalW?</span> <span class="answer"><b>Ответ:</b> clustalw -INFILE=test.fasta -ALIGN</span></div>
+  <div class="qa-line"><span class="question">Вопрос 10. Результат `jobs` после `fg %1`, `Ctrl+C`, `fg %2`, `Ctrl+Z`</span> <span class="answer"><b>Ответ:</b> Только о program2 и program3</span></div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 4</span>
+  </div>
+</div>
+<!-- СЛАЙД 5: ВОПРОСЫ 11-15 (одной строкой) -->
+<div class="slide">
+  <h2>Вопросы и ответы (Часть 3)</h2>
+  <div class="qa-line"><span class="question">Вопрос 11. Одинаковы ли идентификаторы в `jobs`, `top` и `ps`?</span> <span class="answer"><b>Ответ:</b> Одинаковые только у ps и top</span></div>
+  <div class="qa-line"><span class="question">Вопрос 12. Команда для мгновенного завершения остановленного процесса?</span> <span class="answer"><b>Ответ:</b> kill -9</span></div>
+  <div class="qa-line"><span class="question">Вопрос 13. Что произойдёт при `kill` (без опций) для остановленного процесса?</span> <span class="answer"><b>Ответ:</b> Процесс приступит к завершению, как только будет продолжен</span></div>
+  <div class="qa-line"><span class="question">Вопрос 14. Сколько CPU использует остановленное многопоточное приложение?</span> <span class="answer"><b>Ответ:</b> 0% CPU</span></div>
+  <div class="qa-line"><span class="question">Вопрос 15. Сколько памяти занимает остановленное многопоточное приложение?</span> <span class="answer"><b>Ответ:</b> Столько, сколько оно потребляло в момент остановки</span></div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 5</span>
+  </div>
+</div>
+<!-- СЛАЙД 6: ВОПРОСЫ 16-20 (одной строкой) -->
+<div class="slide">
+  <h2>Вопросы и ответы (Часть 4)</h2>
+  <div class="qa-line"><span class="question">Вопрос 16. Как принудительно завершить один поток многопоточного приложения?</span> <span class="answer"><b>Ответ:</b> Никак</span></div>
+  <div class="qa-line"><span class="question">Вопрос 17. Какие этапы bowtie2 можно выполнять в несколько потоков?</span> <span class="answer"><b>Ответ:</b> Только bowtie2</span></div>
+  <div class="qa-line"><span class="question">Вопрос 18. Запуск bowtie2 и сохранение stderr в файл</span> <span class="answer"><b>Ответ:</b> echo "..." > bowtie.log</span></div>
+  <div class="qa-line"><span class="question">Вопрос 19. Что будет, если в другой вкладке набрать `fg` после приостановки процесса?</span> <span class="answer"><b>Ответ:</b> Терминал сообщит, что нет процесса для запуска в fg</span></div>
+  <div class="qa-line"><span class="question">Вопрос 20. Что случится при вводе `exit` в последней вкладке tmux?</span> <span class="answer"><b>Ответ:</b> tmux завершит работу</span></div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 6</span>
+  </div>
+</div>
+<!-- СЛАЙД 7: ВОПРОСЫ 21-24 (одной строкой) -->
+<div class="slide">
+  <h2>Вопросы и ответы (Часть 5)</h2>
+  <div class="qa-line"><span class="question">Вопрос 21. Закрытие терминала с запущенным tmux на сервере</span> <span class="answer"><b>Ответ:</b> Соединение с сервером прервётся, но работа tmux продолжится</span></div>
+  <div class="qa-line"><span class="question">Вопрос 22. Принудительное закрытие вкладки tmux с фоновым процессом</span> <span class="answer"><b>Ответ:</b> Вкладка закроется, а вместе с ней пропадёт и запущенный в ней процесс</span></div>
+  <div class="qa-line"><span class="question">Вопрос 23. Горячая клавиша для переименования текущей вкладки tmux</span> <span class="answer"><b>Ответ:</b> Ctrl+B и , (запятая)</span></div>
+  <div class="qa-line"><span class="question">Вопрос 24. Верные утверждения о разделении панелей в tmux</span> <span class="answer"><b>Ответ:</b> Команды-"разделения" действуют только в текущей вкладке</span></div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 7</span>
+  </div>
+</div>
+<!-- СЛАЙД 8: ВЫВОДЫ -->
+<div class="slide">
+  <h2>Выводы</h2>
+  <div class="qa-block">
+    <ul>
+      <li><b>Итоговый вывод:</b> Все тесты и практические задания второй части курса (разделы 2.1 – 2.6) успешно выполнены. Получены навыки работы с удалёнными серверами, обмена файлами (scp, FileZilla), управления процессами (fg, bg, jobs, kill), использования многопоточных приложений (bowtie2) и работы с терминальным мультиплексором tmux. Отчёт оформлен в соответствии с требованиями.</li>
+      <b><span>Спасибо за внимание</span></b>
+    </ul>
+  </div>
+  <div class="footer">
+    <span>Вахиш Дуаа Иссам Али Ахмед</span>
+    <span>Слайд 8</span>
+  </div>
+</div>
+            
+            
+        </body>
+        </html>
